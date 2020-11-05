@@ -1,0 +1,26 @@
+name: Test Docker tag
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run on branch
+        id: tag_branch
+        if: startsWith(github.ref, 'refs/heads') == true
+        uses: "./docker-tag/"
+      - name: Test on tag
+        if: startsWith(github.ref, 'refs/heads') == true
+        run: |
+          echo "${{steps.tag_branch.outputs.tag}}"
+      - name: Run on tag
+        id: tag_tag
+        if: startsWith(github.ref, 'refs/tags') == true
+        uses: "./docker-tag/"
+      - name: Test on tag
+        if: startsWith(github.ref, 'refs/tags') == true
+        run: |
+          echo "${{steps.tag_tag.outputs.tag}}"
