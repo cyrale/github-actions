@@ -12,7 +12,7 @@ jobs:
         id: tag_branch
         if: startsWith(github.ref, 'refs/heads') == true
         uses: "./docker-tag/"
-      - name: Test on tag
+      - name: Test on branch
         if: startsWith(github.ref, 'refs/heads') == true
         run: |
           echo "${{steps.tag_branch.outputs.tag}}"
