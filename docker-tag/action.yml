@@ -9,7 +9,7 @@ inputs:
     description: "Search pattern to be replaced in tag"
     required: false
     default: ""
-    tag_replacement:
+  tag_replacement:
     description: "Replacement string for tag"
     required: false
     default: ""
