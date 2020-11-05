@@ -1,0 +1,12 @@
+{
+  "name": "docker-tag",
+  "description": "Extract tag from branch or tag pushed to be used by Docker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  }
+}

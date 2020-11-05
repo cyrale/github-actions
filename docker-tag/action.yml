@@ -1,0 +1,21 @@
+name: "Docker tag"
+description: "Extract tag from branch or tag pushed to be used by Docker"
+inputs:
+  latest_branch_name:
+    description: "Latest branch name"
+    required: false
+    default: "main"
+  tag_replace_pattern:
+    description: "Search pattern to be replaced in tag"
+    required: false
+    default: ""
+    tag_replacement:
+    description: "Replacement string for tag"
+    required: false
+    default: ""
+outputs:
+  tag:
+    description: "Tag to use with Docker"
+runs:
+  using: "node12"
+  main: "index.js"
