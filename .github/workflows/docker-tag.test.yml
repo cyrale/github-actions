@@ -20,6 +20,8 @@ jobs:
         id: tag_tag
         if: startsWith(github.ref, 'refs/tags') == true
         uses: "./docker-tag/"
+        with:
+          tag_replace_pattern: "v"
       - name: Test on tag
         if: startsWith(github.ref, 'refs/tags') == true
         run: |
